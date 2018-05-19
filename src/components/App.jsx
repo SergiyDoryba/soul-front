@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import Psalms from './Psalms.jsx'
+import TopNav from './navigation/TopNav.jsx';
+import LeftNav from './navigation/LeftNav.jsx';
 
 class App extends Component {
     constructor(props) {
@@ -7,8 +8,13 @@ class App extends Component {
     }
     render() {
         return (
-            <div style={{textAlign: 'center'}}>
-                <Psalms/>
+            <div>
+                <TopNav/>
+                <div className="container-fluid">
+                    <div className="row">
+                        <LeftNav/>
+                    </div>
+                </div>
             </div>);
     }
 }

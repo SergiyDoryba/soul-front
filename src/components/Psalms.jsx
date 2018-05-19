@@ -16,16 +16,13 @@ class Psalms extends Component {
 
     render() {
         const psalmsItems = this.state.psalms.map(psalm => (
-            <div key={psalm.id}>
-                <h3>{psalm.name_ua}</h3>
-                <span>{psalmsItems}</span>
-            </div>
+            <li className="nav-item" key={psalm.id}>
+                <a className="nav-link" href="#">{psalm.name_ua}</a>
+            </li>
         ));
-        return (
-            <div style={{textAlign: 'center'}}>
-                <h1>Psalms</h1>
-                <div>{psalmsItems}</div>
-            </div>);
+        return (<ul className="nav flex-column">
+                    {psalmsItems}
+                </ul>);
     }
 }
 
