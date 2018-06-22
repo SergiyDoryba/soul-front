@@ -1,8 +1,18 @@
 {
-  "presets":
-  [
+  "presets":[
     "env",
     "react",
-    "es2015"
+    "es2015",
+    "stage-2"
+  ],
+  "plugins": [
+    "syntax-dynamic-import",
+    [
+      "transform-class-properties",
+      {
+        "spec": true
+      }
+    ],
+    "transform-object-rest-spread"
   ]
 }

@@ -9,9 +9,9 @@ class Psalms extends Component {
     }
 
     componentWillMount(){
-      fetch('http://api.myjson.com/bins/hvo82')
-        .then(res => res.json())
-        .then(data => this.setState({ psalms: data }));
+        fetch('http://api.myjson.com/bins/hvo82')
+            .then(res => res.json())
+            .then(data => this.setState({ psalms: data }));
     }
 
     render() {
@@ -20,9 +20,12 @@ class Psalms extends Component {
                 <a className="nav-link" href="#">{psalm.name_ua}</a>
             </li>
         ));
-        return (<ul className="nav flex-column">
-                    {psalmsItems}
-                </ul>);
+
+        return(<div>
+            <ul className="nav flex-column">
+                {psalmsItems}
+            </ul>
+        </div>)
     }
 }
 

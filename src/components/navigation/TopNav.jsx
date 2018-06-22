@@ -1,49 +1,89 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
+import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap'
+import {IndexLinkContainer as LinkContainer} from 'react-router-bootstrap'
+
+
+const NavbarLi = (props) => {
+    const {active, activeKey, activeHref, onSelect, ...restProps} = props;
+    return <li {...restProps}>{props.children}</li>;
+};
 
 class TopNav extends Component {
-    componentWillMount(){
-        console.log('mount TopNav');
-    }
 
     render() {
+        return <Navbar inverse collapseOnSelect fixedTop>
+            <Navbar.Header>
+                <Navbar.Brand>
+                    <Link to="/">Soul</Link>
+                </Navbar.Brand>
+            </Navbar.Header>
+            <Navbar>
+                <Nav pullRight>
+                    <LinkContainer to="/psalms">
+                        <NavItem href="/psalms">Psalms</NavItem>
+                    </LinkContainer>
+                </Nav>
+            </Navbar>
+        </Navbar>;
+
+
+        return <Navbar inverse collapseOnSelect fixedTop>
+            <Navbar.Header>
+                <Navbar.Brand>
+                    {/*<Link to="/"><img src={require('logo.png')} alt="Soul"/></Link>*/}
+                </Navbar.Brand>
+                <Navbar.Toggle />
+            </Navbar.Header>
+            <Navbar.Collapse>
+
+                <Nav pullRight>
+                    <NavbarLi>
+                        {/*<AutorizedUser user={this.props.auth.user} profile={this.props.profile}/>*/}
+                    </NavbarLi>
+                </Nav> :
+                <Nav pullRight>
+                    <LinkModal modal="SignIn">
+                        <NavItem eventKey={3}>Sign In</NavItem>
+                    </LinkModal>
+                    <LinkModal modal="SignUp">
+                        <NavItem eventKey={3}>Sign Up</NavItem>
+                    </LinkModal>
+                </Nav>
+                <Nav pullRight>
+                    {/*<LinkContainer to={Paths.adminPath()}>*/}
+                        {/*<NavItem eventKey={2} href={Paths.adminPath()}>Admin</NavItem>*/}
+                    {/*</LinkContainer>*/}
+                    {/*<LinkContainer to={Paths.searchPath()}>*/}
+                        {/*<NavItem href={Paths.searchPath()}>Search</NavItem>*/}
+                    {/*</LinkContainer>*/}
+                    {/*<LinkContainer to={Paths.accountPath()}>*/}
+                        {/*<NavItem href={Paths.accountPath()}>Account</NavItem>*/}
+                    {/*</LinkContainer>*/}
+                </Nav>
+            </Navbar.Collapse>
+        </Navbar>;
+
         return (
             <nav className="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow" style={{backgroundColor: '#e3f2fd'}}>
-                <a className="navbar-brand" href="/">For Soul</a>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav mr-auto">
-                        <li className="nav-item active">
-                            <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="/">Link</a>
-                        </li>
-                        <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a className="dropdown-item" href="/">Action</a>
-                                <a className="dropdown-item" href="/">Another action</a>
-                                <div className="dropdown-divider"></div>
-                                <a className="dropdown-item" href="/">Something else here</a>
-                            </div>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link disabled" href="/">Disabled</a>
-                        </li>
-                    </ul>
-                    <form className="form-inline my-2 my-lg-0">
-                        <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-                        <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                </div>
-            </nav>);
+                <Navbar.Header>
+                    <Navbar.Brand>
+                        <Link to="/">Home</Link>
+                    </Navbar.Brand>
+                </Navbar.Header>
+                <Nav>
+                    <NavItem eventKey={1} href="#">
+                        <Link to="/psalms">Psalms</Link>
+                    </NavItem>
+                    <NavItem eventKey={2} href="#">
+                        <Link to="/posts">Posts</Link>
+                    </NavItem>
+                    <NavItem eventKey={3} href="#">
+                        <Link to="/about">About</Link>
+                    </NavItem>
+                </Nav>
+            </nav>
+        );
     }
 }
 
