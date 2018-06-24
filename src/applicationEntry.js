@@ -1,30 +1,27 @@
-import React, { Component } from 'react'
-import ReactDom from 'react-dom'
-import {Provider} from 'react-redux'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import Routes from './routes.jsx'
+import App from './app.jsx'
 import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
 import reducer from './reducers/index.jsx'
 
-import {ThemeProvider} from 'react-jss'
-import theme from './theme.jsx'
-import App from './components/App.jsx'
-
-// TODO BOOTSTRAP
-import 'bootstrap/dist/css/bootstrap.css';
-import '../public/assets/application.css'
-
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))
 
-class ApplicationRoot extends Component {
+App.store = store;
+window.app = App;
+
+class Application extends React.Component {
+
     render() {
-        return <ThemeProvider theme={theme}>
-                <Provider store={store}>
-                    <App/>
-                </Provider>
-            </ThemeProvider>;
+        return <Provider store={store}>
+            <Routes/>
+        </Provider>;
     }
 }
-export default ApplicationRoot
 
-ReactDom.render(<ApplicationRoot/>, document.getElementById('rootAppEntry'));
+document.addEventListener('DOMContentLoaded', () => {
+    ReactDOM.render(<Application name='React'/>, document.getElementById('rootAppEntry'))}
+);

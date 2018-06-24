@@ -1,4 +1,4 @@
 export default {
-    psalms: [],
-    posts: []
+    psalms: {data: [], psalms: []},
+    posts: {data: [], posts: []}
 }
