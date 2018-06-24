@@ -2,9 +2,9 @@ import axios from 'axios'
 import BaseApi from './baseApi.jsx'
 
 
-class PsalmApi extends BaseApi {
+class PostApi extends BaseApi {
     static apiPath() {
-        return '/bins';
+        return '/posts';
     }
 
     static resources() {
@@ -12,12 +12,12 @@ class PsalmApi extends BaseApi {
     }
 
     static modelName() {
-        return 'hvo82';
+        return '';
     }
 
     static path() {
-        return 'https://forsoul.herokuapp.com/api/needs/psalms';
+        return 'https://jsonplaceholder.typicode.com/posts';
     }
 }
 
-export default PsalmApi;
+export default PostApi;
