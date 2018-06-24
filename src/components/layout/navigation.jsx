@@ -8,9 +8,7 @@ const NavbarLi = (props) => {
     const {active, activeKey, activeHref, onSelect, ...restProps} = props;
     return <li {...restProps}>{props.children}</li>;
 };
-
-class TopNav extends Component {
-
+class Navigation extends React.Component {
     render() {
         return <nav className="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow" style={{backgroundColor: '#e3f2fd'}}>
             <Navbar.Header>
@@ -37,4 +35,5 @@ class TopNav extends Component {
     }
 }
 
-export default TopNav;
+
+export default Navigation;

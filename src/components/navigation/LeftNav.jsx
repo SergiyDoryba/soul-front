@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Psalms from '../Psalms.jsx'
+import Psalms from '../psalms/index.jsx'
 class LeftNav extends Component {
     componentWillMount(){
         console.log('mount TopNav');
