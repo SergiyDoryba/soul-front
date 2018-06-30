@@ -8,6 +8,8 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
 import reducer from './reducers/index.jsx'
 
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))
 
 App.store = store;

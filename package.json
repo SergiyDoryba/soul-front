@@ -28,7 +28,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "base64-image-loader": "^1.2.1",
-    "bootstrap": "^4.1.1",
+    "bootstrap": "4.1.1",
     "capitalize": "^1.0.0",
     "html-webpack-plugin": "^3.2.0",
     "keykey": "^2.1.1",

@@ -14,13 +14,16 @@ class Posts extends Component {
     }
 
     render() {
-        console.log(this.props.posts)
-        return(<div>
-            <ul className="nav flex-column">
-                Posts
-                {JSON.stringify(this.props.posts)}
+        const postItems = this.props.posts.map((post) => (<li className="list-group-item list-group-item-action" key={post.id}><a className="nav-link" href="#">{post.title}</a></li>));
+        return(<div className='row'>
+            <div className='col-md-4'>
+                <ul className="list-group">
+                    {postItems}
+                </ul>
+            </div>
+            <div className='col-md-8'>
 
-            </ul>
+            </div>
         </div>)
     }
 }

@@ -8,7 +8,7 @@ class ApplicationLayout extends React.Component {
     render() {
         const { component: Component, ...rest } = this.props;
         return <Route {...rest} render={matchProps => (
-            <div className="ApplicationLayout">
+            <div>
                 <Header/>
                 <Main>
                     <Component {...matchProps} />
