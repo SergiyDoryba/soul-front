@@ -15,7 +15,8 @@ class PsalmShow extends Component {
 
     render() {
         const psalmsItems = this.props.location.state.psalm.psalms.map((psalm) => (
-            <Panel header={psalm.name}
+            <Panel key={psalm.id}
+                   header={psalm.name}
                    headerClass="my-header-class">
                 <span>Позиція OLD: {psalm.position_old}</span>
                 <br />
