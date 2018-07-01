@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
+import PsalmList from '../psalms/list.jsx'
 
 class Dashboards extends Component {
     render() {
-        return(<div>
-            Dashboards
+        return(<div className='row'>
+            <div className='col-md-12'>
+                <PsalmList/>
+            </div>
         </div>)
     }
 }

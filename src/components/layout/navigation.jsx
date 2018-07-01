@@ -25,12 +25,12 @@ class Navigation extends React.Component {
                         <LinkContainer className="nav-item" to="/psalms">
                           <NavItem className="nav-link" href="/psalms">Psalms</NavItem>
                         </LinkContainer>
-                        <LinkContainer className="nav-item" to="/posts">
-                            <NavItem className="nav-link" href="/posts">Posts</NavItem>
-                        </LinkContainer>
-                        <LinkContainer className="nav-item" to="/about">
-                            <NavItem className="nav-link" href="/about">About</NavItem>
-                        </LinkContainer>
+                        {/*<LinkContainer className="nav-item" to="/posts">*/}
+                            {/*<NavItem className="nav-link" href="/posts">Posts</NavItem>*/}
+                        {/*</LinkContainer>*/}
+                        {/*<LinkContainer className="nav-item" to="/about">*/}
+                            {/*<NavItem className="nav-link" href="/about">About</NavItem>*/}
+                        {/*</LinkContainer>*/}
                     </ul>
                     {/*<form className="form-inline my-2 my-lg-0">*/}
                         {/*<input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />*/}
