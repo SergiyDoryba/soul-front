@@ -1,4 +1,4 @@
-import {cloneDeep} from 'lodash'
+import {cloneDeep, filter} from 'lodash'
 import types from '../actions/actionTypes.jsx'
 import initialState from './initialState.jsx'
 
@@ -14,12 +14,21 @@ const psalmsReducer = (state = initialState.psalms, action) => {
             // action.data.forEach(psalm => newState.data[psalm.id] = psalm)
             // newState.psalms = action.data.map(psalm => psalm.id);
             return newState;
+        case types.LOAD_PSALM_SUCCESS:
+            newState = cloneDeep(state);
+            newState.psalms = action.data;
+            newState.current = filter(action.data, ['id', parseInt(action.psalmId.id)]).shift()
+            return newState;
         default:
             return state;
     }
 };
 
 export default psalmsReducer;
+
+export const psalmSelector = (state, id) => {
+    return {psalm: state.psalms.current}
+};
 
 export const psalmsSelector = (state) => {
     return state.psalms

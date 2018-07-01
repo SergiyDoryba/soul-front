@@ -24,7 +24,8 @@ const Dashboards = asyncComponent(() => import('./components/dashboards/index.js
 const About = asyncComponent(() => import('./components/about/index.jsx'));
 const Psalms = asyncComponent(() => import('./components/psalms/index.jsx'));
 const Posts = asyncComponent(() => import('./components/posts/index.jsx'));
-// const PsalmShow = asyncComponent(() => import('./components/psalms/show.jsx'));
+const PsalmShow = asyncComponent(() => import('./components/psalms/show.jsx'));
+const PostShow = asyncComponent(() => import('./components/posts/show.jsx'));
 
 class Routes extends React.Component {
     render() {
@@ -34,8 +35,9 @@ class Routes extends React.Component {
                     <ApplicationLayout exact path={Paths.rootRegexp} component={Dashboards}/>
                     <ApplicationLayout exact path={Paths.aboutRegexp} component={About}/>
                     <ApplicationLayout exact path={Paths.psalmsRegexp} component={Psalms}/>
-                    {/*<ApplicationLayout exact path={Paths.psalmRegexp} component={PsalmShow}/>*/}
+                    <ApplicationLayout exact path={Paths.psalmRegexp} component={PsalmShow}/>
                     <ApplicationLayout exact path={Paths.postsRegexp} component={Posts}/>
+                    <ApplicationLayout exact path={Paths.postRegexp} component={PostShow}/>
                     <ApplicationLayout exact path="/(|#[a-zA-Z]+)"/>
                     <ApplicationLayout path="*" component={NotFound}/>
                  </Switch>

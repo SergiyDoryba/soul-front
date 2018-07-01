@@ -5,7 +5,9 @@ export default keykey([
     // Psalms
     'RESET_PSALMS',
     'LOAD_PSALMS_SUCCESS',
+    'LOAD_PSALM_SUCCESS',
     // Posts
     'RESET_POSTS',
     'LOAD_POSTS_SUCCESS',
+    'LOAD_POST_SUCCESS',
 ]);

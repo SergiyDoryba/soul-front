@@ -12,6 +12,11 @@ const postsReducer = (state = initialState.posts, action) => {
             newState = cloneDeep(state);
             newState.posts = action.data;
             return newState;
+        case types.LOAD_POST_SUCCESS:
+            newState = cloneDeep(state);
+            newState.data[action.post.id] = action.post;
+            newState.posts.push(action.post.id);
+            return newState;
         default:
             return state;
     }

@@ -12,6 +12,7 @@ const regexp = {
     root: '/',
     psalms: '/psalms',
     posts: '/posts',
+    post: '/posts/:id',
     about: '/about',
     psalm: '/psalms/:id'
 
