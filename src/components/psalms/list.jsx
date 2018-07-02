@@ -10,9 +10,15 @@ class PsalmList extends Component {
         this.props.actions.loadPsalms();
     }
     render() {
+        const styleBlock = {
+            overflow: 'auto',
+            maxHeight: '92vh',
+            color: 'red',
+            height: '100vh'
+        }
         const psalmsItems = this.props.psalms.map((psalm) => (<Psalm key={psalm.id} psalm={psalm}/>));
         return(
-            <ul className="list-group">
+            <ul className="list-group psalm-navigation" style={styleBlock}>
                 {psalmsItems}
             </ul>
         );
