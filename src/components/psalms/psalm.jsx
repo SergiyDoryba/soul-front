@@ -8,13 +8,13 @@ import Paths from '../../paths.jsx'
 
 class Psalm extends React.Component {
     onClickPsalm() {
-        this.props.actions.loadPsalm({id: this.props.psalm.id});
+        this.props.actions.loadPsalmFromStore({id: this.props.psalm.id, data: this.props.psalm.id});
     }
+
     render () {
         return <li className="list-group-item list-group-item-action">
             <Link to={{pathname: Paths.psalmPath({id: this.props.psalm.id}), state: {psalm: this.props.psalm}}} className="nav-link" onClick={this.onClickPsalm.bind(this)}>{this.props.psalm.name_ua}</Link>
         </li>;
-
     }
 }
 

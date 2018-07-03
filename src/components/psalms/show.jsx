@@ -5,36 +5,40 @@ import Collapse, { Panel } from 'rc-collapse'
 import * as psalmActions from '../../actions/psalmActions.jsx'
 import {psalmSelector} from '../../reducers/psalmsReducer.jsx'
 import PsalmList from './list.jsx'
+import PanelItem from './panelItem.jsx'
 
 class PsalmShow extends Component {
+
     componentDidMount() {
-        if(!this.props.psalm){
+        if(!this.props.location.state){
             this.props.actions.loadPsalm({id: this.props.match.params.id});
         }
     }
 
+    checkObject() {
+        if (this.props.psalm == undefined && this.props.location.state == undefined)
+            return null
+        else if (this.props.psalm)
+            return this.props.psalm
+        else if (this.props.location.state)
+            return this.props.location.state.psalm
+    }
+
     render() {
-        const psalmsItems = this.props.psalm ?
-            this.props.psalm.psalms.map((psalm) => (
-            <Panel key={psalm.id}
-                   header={psalm.name}
-                   headerClass="my-header-class">
-                <span>Позиція Стара: {psalm.position_old}</span>
-                <br />
-                <span>позиція Нова: {psalm.position_new}</span>
-                <br />
-                <a href={psalm.link_url} target="_blank">{psalm.name}</a>
-            </Panel>))
-         : null
+        const psalmsItems = (this.checkObject()) ? this.checkObject().psalms.map((psalm) => (<PanelItem key={psalm.id} psalm={psalm}/>)) : null
+
         return(<div className='row'>
             <div className='col-md-4'>
                 <PsalmList/>
             </div>
             <div className='col-md-8'>
-                <h3>{this.props.psalm ? this.props.psalm.name_ua : null}</h3>
-                <Collapse accordion={false}>
+                <h3>{this.checkObject() ? this.checkObject().name_ua : null}</h3>
+                <ul className="list-group">
                     {psalmsItems}
-                </Collapse>
+                </ul>
+                {/*<Collapse accordion={false}>*/}
+                    {/*{psalmsItems}*/}
+                {/*</Collapse>*/}
             </div>
         </div>)
     }

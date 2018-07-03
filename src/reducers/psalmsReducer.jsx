@@ -19,6 +19,10 @@ const psalmsReducer = (state = initialState.psalms, action) => {
             newState.psalms = action.data;
             newState.current = filter(action.data, ['id', parseInt(action.psalmId.id)]).shift()
             return newState;
+        case types.LOAD_CURRENT_PSALM_SUCCESS:
+            newState = cloneDeep(state);
+            newState.current = action.data
+            return newState;
         default:
             return state;
     }
