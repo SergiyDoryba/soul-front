@@ -7,8 +7,11 @@ import Psalm from './psalm.jsx'
 
 class PsalmList extends Component {
     componentDidMount() {
-        this.props.actions.loadPsalms();
+        if (!this.props.psalms.length > 0) {
+            this.props.actions.loadPsalms();
+        }
     }
+
     render() {
         const styleBlock = {
             overflow: 'auto',

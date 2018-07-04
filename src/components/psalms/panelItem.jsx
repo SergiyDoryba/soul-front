@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
 import { Panel } from 'rc-collapse'
 
 class PanelItem extends Component {
 
     render() {
-        return <li>
-            <span>{this.props.psalm.position_old}(this.props.psalm.position_new) {this.props.psalm.name}</span>
+        return <li className="list-group-item list-group-item-action">
+            <span>
+                 {this.props.psalm.position_old} ({this.props.psalm.position_new}) </span>
             <a href={this.props.psalm.link_url} target="_blank">{this.props.psalm.name}</a>
-        </li>
+         </li>
 
         // return(<Panel header={this.props.psalm.name}
         //               headerClass="my-header-class">

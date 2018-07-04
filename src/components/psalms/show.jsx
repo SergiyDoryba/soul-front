@@ -36,7 +36,7 @@ class PsalmShow extends Component {
                 <ul className="list-group">
                     {psalmsItems}
                 </ul>
-                {/*<Collapse accordion={false}>*/}
+                {/*<Collapse accordion={true}>*/}
                     {/*{psalmsItems}*/}
                 {/*</Collapse>*/}
             </div>
