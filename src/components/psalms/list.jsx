@@ -6,9 +6,17 @@ import {psalmsSelector} from '../../reducers/psalmsReducer.jsx'
 import Psalm from './psalm.jsx'
 
 class PsalmList extends Component {
+    constructor() {
+        super();
+        this.state = {
+            loading: true
+        };
+    }
+
     componentDidMount() {
         if (!this.props.psalms.length > 0) {
             this.props.actions.loadPsalms();
+            this.setState({loading: false});
         }
     }
 
@@ -20,11 +28,10 @@ class PsalmList extends Component {
             height: '100vh'
         }
         const psalmsItems = this.props.psalms.map((psalm) => (<Psalm key={psalm.id} psalm={psalm}/>));
-        return(
-            <ul className="list-group psalm-navigation" style={styleBlock}>
-                {psalmsItems}
-            </ul>
-        );
+                return (<ul className="list-group psalm-navigation" style={styleBlock}>
+                    {psalmsItems}
+                </ul>
+            );
     }
 }
 

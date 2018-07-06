@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import {Navbar, Nav, NavItem, NavDropdown, MenuItem} from 'react-bootstrap'
 import {IndexLinkContainer as LinkContainer} from 'react-router-bootstrap'
 
-
 const NavbarLi = (props) => {
     const {active, activeKey, activeHref, onSelect, ...restProps} = props;
     return <li {...restProps}>{props.children}</li>;
@@ -12,7 +11,7 @@ class Navigation extends React.Component {
     render() {
         return <div>
 
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <nav className="navbar navbar-expand-lg navbar-light bg-light fixed">
                 <Link className="navbar-brand" to="/">for Soul</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -41,6 +40,5 @@ class Navigation extends React.Component {
         </div>;
     }
 }
-
 
 export default Navigation;

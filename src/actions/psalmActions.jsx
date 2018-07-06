@@ -23,6 +23,6 @@ export  const  loadPsalmFromStore = (psalm, payload, catchFunction, thenFunction
 export const loadPsalm = (psalmId, payload, catchFunction, thenFunction) => (dispatch) => {
     return psalmApi.catchError(psalmApi.getAll(payload), catchFunction, thenFunction, response => {
         dispatch(loadPsalmSuccess(response, psalmId));
-        return filter(response.data, ['id', parseInt(psalmId.id)]).shift();
+        return filter(response.data, ['slug', psalmId.id]).shift();
     });
 };
