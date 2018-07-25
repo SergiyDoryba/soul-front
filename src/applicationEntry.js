@@ -9,7 +9,7 @@ import thunk from 'redux-thunk'
 import reducer from './reducers/index.jsx'
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import  'rc-collapse/assets/index.css'
+import './application.css';
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)))
 

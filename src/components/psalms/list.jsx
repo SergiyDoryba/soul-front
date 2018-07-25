@@ -27,7 +27,8 @@ class PsalmList extends Component {
             color: 'red',
             height: '100vh'
         }
-        const psalmsItems = this.props.psalms.map((psalm) => (<Psalm key={psalm.id} psalm={psalm}/>));
+
+        const psalmsItems = this.props.psalms.map((psalm) => (<Psalm key={psalm.id} psalm={psalm} activeElement={this.props.activeElement} />));
                 return (<ul className="list-group psalm-navigation" style={styleBlock}>
                     {psalmsItems}
                 </ul>

@@ -4,7 +4,7 @@ import BaseApi from './baseApi.jsx'
 
 class PsalmApi extends BaseApi {
     static apiPath() {
-        return '/bins';
+        return '/api/needs';
     }
 
     static resources() {
@@ -12,11 +12,11 @@ class PsalmApi extends BaseApi {
     }
 
     static modelName() {
-        return 'hvo82';
+        return 'psalm';
     }
 
     static path() {
-        return 'https://forsoul.herokuapp.com/api/needs/psalms';
+        return API_PSALMS;
     }
 }
 

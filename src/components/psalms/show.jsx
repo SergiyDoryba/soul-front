@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import Collapse, { Panel } from 'rc-collapse'
 import * as psalmActions from '../../actions/psalmActions.jsx'
 import {psalmSelector} from '../../reducers/psalmsReducer.jsx'
 import PsalmList from './list.jsx'
@@ -26,19 +25,15 @@ class PsalmShow extends Component {
 
     render() {
         const psalmsItems = (this.checkObject()) ? this.checkObject().psalms.map((psalm) => (<PanelItem key={psalm.id} psalm={psalm}/>)) : null
-
         return(<div className='row'>
             <div className='col-md-4'>
-                <PsalmList/>
+                <PsalmList activeElement={this.checkObject()}/>
             </div>
             <div className='col-md-8'>
                 <h3>{this.checkObject() ? this.checkObject().name_ua : null}</h3>
                 <ul className="list-group">
                     {psalmsItems}
                 </ul>
-                {/*<Collapse accordion={true}>*/}
-                    {/*{psalmsItems}*/}
-                {/*</Collapse>*/}
             </div>
         </div>)
     }

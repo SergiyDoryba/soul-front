@@ -1,8 +1,13 @@
 let path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-module.exports = {
-    devtool: 'source-map',
+const merge = require('webpack-merge');
+const common = require('./webpack.common.js');
+
+module.exports = merge(common, {
+    mode: 'development',
+    devtool: 'inline-source-map',
     entry: './src/applicationEntry.js',
     output: {
         filename: 'bundle.js',
@@ -18,7 +23,18 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: [ 'style-loader', 'css-loader' ]
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ]
+            },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                use: ['file-loader']
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                use: ['file-loader']
             }
         ]
     },
@@ -27,6 +43,7 @@ module.exports = {
             template: './src/index.html',
             favicon: './public/assets/images/icons/favicon.ico'
         }),
+        new CleanWebpackPlugin(['dist']),
     ],
     devServer: {
         contentBase: path.resolve(__dirname, "dist"),
@@ -34,4 +51,4 @@ module.exports = {
         compress: true,
         port: 9000
     }
-}
+});
