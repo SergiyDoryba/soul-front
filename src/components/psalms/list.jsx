@@ -4,6 +4,7 @@ import {bindActionCreators} from 'redux'
 import * as psalmActions from '../../actions/psalmActions.jsx'
 import {psalmsSelector} from '../../reducers/psalmsReducer.jsx'
 import Psalm from './psalm.jsx'
+import Loader from '../common/loader.jsx'
 
 class PsalmList extends Component {
     constructor() {
@@ -21,18 +22,16 @@ class PsalmList extends Component {
     }
 
     render() {
-        const styleBlock = {
-            overflow: 'auto',
-            maxHeight: '92vh',
-            color: 'red',
-            height: '100vh'
-        }
+      const styleBlock = {
+        overflow: 'auto',
+        maxHeight: '92vh',
+        color: 'red',
+        height: '100vh'
+      }
 
-        const psalmsItems = this.props.psalms.map((psalm) => (<Psalm key={psalm.id} psalm={psalm} activeElement={this.props.activeElement} />));
-                return (<ul className="list-group psalm-navigation" style={styleBlock}>
-                    {psalmsItems}
-                </ul>
-            );
+      const psalmsItems = this.props.psalms.map((psalm) => (<Psalm key={psalm.id} psalm={psalm} activeElement={this.props.activeElement} />));
+      let content = !this.props.psalms.length > 0 ? <Loader /> : <ul className="list-group psalm-navigation" style={styleBlock}>{psalmsItems}</ul>
+      return content;
     }
 }
 

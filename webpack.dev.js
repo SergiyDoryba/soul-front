@@ -14,30 +14,6 @@ module.exports = merge(common, {
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/'
     },
-    module: {
-        rules: [
-            {
-                test: /\.jsx?$/,
-                loader: 'babel-loader',
-                exclude: /node_modules/
-            },
-            {
-                test: /\.css$/,
-                use: [
-                    'style-loader',
-                    'css-loader'
-                ]
-            },
-            {
-                test: /\.(png|svg|jpg|gif)$/,
-                use: ['file-loader']
-            },
-            {
-                test: /\.(woff|woff2|eot|ttf|otf)$/,
-                use: ['file-loader']
-            }
-        ]
-    },
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/index.html',
