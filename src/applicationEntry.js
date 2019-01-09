@@ -26,5 +26,5 @@ class Application extends React.Component {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    ReactDOM.render(<Application name='React'/>, document.getElementById('rootAppEntry'))}
+    ReactDOM.render(<Application name='React'/>, document.getElementById('root'))}
 );
